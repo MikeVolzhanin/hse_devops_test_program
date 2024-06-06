@@ -1,9 +1,9 @@
-name: Build and Test
+name: Build, Test and Lint
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -24,3 +24,7 @@ jobs:
 
       - name: Run tests
         run: mvn test --file pom.xml
+
+      - name: Run Checkstyle
+        run: mvn checkstyle:checkstyle
+
